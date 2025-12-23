@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blizzard Check Fees</title>
+    <link rel="icon" type="image/x-icon" href="snow.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f5f0 0%, #faf9f6 50%, #f0f0eb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            width: 100vw;
+            padding: 100px 20px 50px;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: rgba(173, 216, 230, 0.8);
+            font-size: 1em;
+            animation: fall linear infinite;
+            text-shadow: 0 0 5px rgba(173, 216, 230, 0.5);
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .x-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000000;
+            border: 2px solid #000000;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .x-button:hover {
+            background: #1a1a1a;
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(173, 216, 230, 0.6);
+            border-radius: 8px;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            box-shadow: 0 2px 10px rgba(173, 216, 230, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: rgba(173, 216, 230, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .snowball {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(220, 235, 245, 0.9));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 10px 40px rgba(173, 216, 230, 0.4),
+                inset -5px -5px 20px rgba(173, 216, 230, 0.3),
+                inset 5px 5px 20px rgba(255, 255, 255, 0.8);
+            margin: 50px auto;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .snowball-content {
+            text-align: center;
+        }
+
+        .fee-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .fee-label {
+            font-size: 1rem;
+            color: #5a6c7d;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .transactions-section {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(173, 216, 230, 0.3);
+        }
+
+        .transactions-section h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .transactions-section p {
+            color: #5a6c7d;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .transaction-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .transaction-table th {
+            background: rgba(173, 216, 230, 0.3);
+            padding: 15px;
+            text-align: left;
+            color: #2c3e50;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(173, 216, 230, 0.5);
+        }
+
+        .transaction-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(173, 216, 230, 0.2);
+            color: #4a5568;
+        }
+
+        .transaction-table tr:hover {
+            background: rgba(173, 216, 230, 0.1);
+        }
+
+        .tx-type {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .tx-purchase {
+            background: rgba(173, 216, 230, 0.3);
+            color: #2c3e50;
+        }
+
+        .tx-distribution {
+            background: rgba(173, 216, 230, 0.5);
+            color: #1a4d6d;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .snowball {
+                width: 250px;
+                height: 250px;
+            }
+            .fee-amount {
+                font-size: 2rem;
+            }
+            .transactions-section {
+                padding: 20px;
+            }
+            .transaction-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://x.com/Blizzard_Sh" target="_blank" class="x-button">𝕏</a>
+    <a href="index.html" class="back-button">← Back</a>
+    
+    <div class="snowball">
+        <div class="snowball-content">
+            <div class="fee-amount" id="feeCounter">0.00</div>
+            <div class="fee-label">SOL Collected</div>
+        </div>
+    </div>
+
+    <div class="transactions-section">
+        <h2>Live Transaction Feed</h2>
+        <p>Every purchase and token send out is viewable on the Solana dev wallet as you can see below! All transactions are transparent and verifiable on-chain.</p>
+        
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Wallet</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="transactionList">
+                <!-- Transactions will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const snowflakeSymbols = ['❄', '❅', '❆'];
+        const numSnowflakes = 250;
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+            
+            const startPosition = Math.random() * 100;
+            const fontSize = Math.random() * 1.5 + 0.5;
+            const duration = Math.random() * 2 + 3;
+            const delay = Math.random() * 0.5;
+            
+            snowflake.style.left = startPosition + '%';
+            snowflake.style.fontSize = fontSize + 'em';
+            snowflake.style.animationDuration = duration + 's';
+            snowflake.style.animationDelay = delay + 's';
+            snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+            
+            document.body.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        for (let i = 0; i < numSnowflakes; i++) {
+            createSnowflake();
+        }
+
+        setInterval(() => {
+            createSnowflake();
+        }, 50);
+
+        // Fee counter animation
+        let feeAmount = 0;
+        const devWallet = "DevWallet7x...K9m3Qp";
+        let transactionCount = 0;
+        
+        setInterval(() => {
+            feeAmount += 0.01;
+            document.getElementById('feeCounter').textContent = feeAmount.toFixed(2);
+        }, 2000);
+
+        // Add transactions from dev wallet periodically
+        function addTransaction() {
+            const transactionList = document.getElementById('transactionList');
+            if (!transactionList) return;
+
+            transactionCount++;
+            const randomAmount = (Math.random() * 0.0009 + 0.0001).toFixed(4);
+            const types = ['Purchase', 'Distribution'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            
+            const row = document.createElement('tr');
+            row.style.animation = 'fadeIn 0.5s ease-in';
+            
+            row.innerHTML = `
+                <td><span class="tx-type ${type === 'Purchase' ? 'tx-purchase' : 'tx-distribution'}">${type}</span></td>
+                <td>${type === 'Purchase' ? randomAmount + ' SOL' : '$0.10 BLIZZARD'}</td>
+                <td>${devWallet}</td>
+                <td>Just now</td>
+            `;
+            
+            transactionList.insertBefore(row, transactionList.firstChild);
+            
+            // Keep only last 10 transactions
+            if (transactionList.children.length > 10) {
+                transactionList.removeChild(transactionList.lastChild);
+            }
+            
+            // Update timestamps
+            const rows = transactionList.querySelectorAll('tr');
+            rows.forEach((r, index) => {
+                if (index === 0) {
+                    r.querySelector('td:last-child').textContent = 'Just now';
+                } else {
+                    r.querySelector('td:last-child').textContent = `${index} min${index > 1 ? 's' : ''} ago`;
+                }
+            });
+        }
+
+        // Add first transaction after 3 seconds, then every 8 seconds
+        setTimeout(() => {
+            addTransaction();
+            setInterval(addTransaction, 8000);
+        }, 3000);
+    </script>
+</body>
+</html>
