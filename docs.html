@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blizzard - Documentation</title>
+    <link rel="icon" type="image/x-icon" href="snow.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f5f0 0%, #faf9f6 50%, #f0f0eb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            width: 100vw;
+            padding: 100px 20px 50px;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: rgba(173, 216, 230, 0.8);
+            font-size: 1em;
+            animation: fall linear infinite;
+            text-shadow: 0 0 5px rgba(173, 216, 230, 0.5);
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .x-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000000;
+            border: 2px solid #000000;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .x-button:hover {
+            background: #1a1a1a;
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(173, 216, 230, 0.6);
+            border-radius: 8px;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            box-shadow: 0 2px 10px rgba(173, 216, 230, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: rgba(173, 216, 230, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .docs-section {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 5px 20px rgba(173, 216, 230, 0.3);
+        }
+
+        .docs-section h1 {
+            color: #2c3e50;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .docs-section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(173, 216, 230, 0.5);
+            padding-bottom: 10px;
+        }
+
+        .docs-section h3 {
+            color: #3d5a7a;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .docs-section p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .docs-section ul {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            margin-left: 30px;
+        }
+
+        .docs-section li {
+            margin-bottom: 10px;
+        }
+
+        .docs-section strong {
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .docs-section {
+                padding: 30px 20px;
+            }
+            .docs-section h1 {
+                font-size: 2rem;
+            }
+            .docs-section h2 {
+                font-size: 1.5rem;
+            }
+            .docs-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://x.com/Blizzard_Sh" target="_blank" class="x-button">𝕏</a>
+    <a href="index.html" class="back-button">← Back</a>
+    
+    <div class="docs-section">
+        <h1>BLIZZARD Documentation</h1>
+        
+        <h2>What is Blizzard?</h2>
+        <p>Blizzard is a revolutionary Solana-based token project that creates a true "blizzard effect" across the blockchain. Unlike traditional tokens that rely on manual marketing and slow organic growth, Blizzard uses an automated mass distribution system to ensure our token reaches every corner of the Solana ecosystem.</p>
+
+        <h2>The Core Mechanism</h2>
+        
+        <h3>Fee Collection & Buyback</h3>
+        <p>Every transaction involving Blizzard tokens incurs a small fee. These fees are automatically collected into our treasury wallet. Instead of keeping these fees or using them for traditional marketing, we deploy them strategically:</p>
+        <ul>
+            <li><strong>Mass Buyback Program:</strong> Collected fees are used to buy back Blizzard tokens from the open market, creating consistent buying pressure and supporting the token price.</li>
+            <li><strong>Automatic Distribution:</strong> The bought-back tokens aren't burned or held—they're immediately redistributed to active Solana wallets.</li>
+        </ul>
+
+        <h3>The Blizzard Effect</h3>
+        <p>Our unique distribution system sends exactly $0.10 worth of Blizzard tokens to every active Solana wallet. This creates a literal "blizzard" of transactions across the Solana blockchain:</p>
+        <ul>
+            <li><strong>Mass Awareness:</strong> When thousands of wallets suddenly receive Blizzard tokens, they naturally investigate what they've received, driving organic interest.</li>
+            <li><strong>Network Effect:</strong> Each recipient becomes a potential holder and advocate, exponentially expanding our reach.</li>
+            <li><strong>Fair Distribution:</strong> Unlike airdrops that favor early adopters or large holders, our system ensures everyone on Solana gets an equal opportunity.</li>
+        </ul>
+
+        <h2>Transparency & Verification</h2>
+        <p>Every single transaction—from purchases to distributions—is publicly viewable on the Solana blockchain. Our dev wallet address is fully transparent, allowing anyone to verify:</p>
+        <ul>
+            <li>Fee collection amounts</li>
+            <li>Buyback transactions</li>
+            <li>Distribution events</li>
+            <li>Treasury balance</li>
+        </ul>
+        <p>We believe in complete transparency. There are no hidden wallets, no secret reserves, and no backdoor mechanisms. What you see on-chain is exactly what's happening.</p>
+
+        <h2>Why Solana?</h2>
+        <p>Blizzard is built on Solana for several critical reasons:</p>
+        <ul>
+            <li><strong>Speed:</strong> Solana's high throughput allows us to execute mass distributions quickly and efficiently.</li>
+            <li><strong>Low Fees:</strong> Minimal transaction costs make it economically viable to send small amounts ($0.10) to thousands of wallets.</li>
+            <li><strong>Growing Ecosystem:</strong> Solana's expanding user base provides an ever-growing pool of active wallets to reach.</li>
+        </ul>
+
+        <h2>Tokenomics</h2>
+        <p>Blizzard operates on a simple but effective tokenomic model:</p>
+        <ul>
+            <li><strong>Transaction Fee:</strong> A small percentage fee on all transactions funds the buyback and distribution mechanism.</li>
+            <li><strong>No Team Allocation:</strong> There are no tokens reserved for the team beyond what's earned through the same mechanisms available to everyone.</li>
+            <li><strong>Deflationary Pressure:</strong> Constant buybacks from fees create organic buying pressure, while distribution spreads tokens to new holders.</li>
+            <li><strong>Community-Driven:</strong> Every holder contributes to the blizzard effect through transaction fees, making this a truly community-powered project.</li>
+        </ul>
+
+        <h2>The Vision</h2>
+        <p>Blizzard isn't just another meme token or speculative asset. It's an experiment in viral token distribution and organic growth. By leveraging Solana's technology and a unique economic model, we're creating a token that literally spreads itself across the blockchain like a winter storm.</p>
+        <p>Our goal is simple: make Blizzard the most widely distributed token on Solana, not through centralized exchanges or whale manipulation, but through genuine grassroots distribution to real users.</p>
+
+        <h2>Getting Started</h2>
+        <p>Joining the Blizzard is simple:</p>
+        <ul>
+            <li>Purchase Blizzard tokens through any Solana DEX</li>
+            <li>Hold your tokens in an active Solana wallet</li>
+            <li>Watch as transaction fees fuel the blizzard effect</li>
+            <li>Participate in the community and spread the word</li>
+        </ul>
+        <p>Remember: every transaction you make contributes to the next wave of distributions. You're not just holding a token—you're part of a movement to democratize token distribution across Solana.</p>
+    </div>
+
+    <script>
+        const snowflakeSymbols = ['❄', '❅', '❆'];
+        const numSnowflakes = 250;
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+            
+            const startPosition = Math.random() * 100;
+            const fontSize = Math.random() * 1.5 + 0.5;
+            const duration = Math.random() * 2 + 3;
+            const delay = Math.random() * 0.5;
+            
+            snowflake.style.left = startPosition + '%';
+            snowflake.style.fontSize = fontSize + 'em';
+            snowflake.style.animationDuration = duration + 's';
+            snowflake.style.animationDelay = delay + 's';
+            snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+            
+            document.body.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        for (let i = 0; i < numSnowflakes; i++) {
+            createSnowflake();
+        }
+
+        setInterval(() => {
+            createSnowflake();
+        }, 50);
+    </script>
+</body>
+</html>
