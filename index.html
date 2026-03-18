@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Hand</title>
-    <link rel="icon" type="image/x-icon" href="themainlogo.png">
+    <link rel="icon" type="image/jpeg" href="hand-logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #1d1f21;
-            --text: #c9cacc;
-            --text-light: #eeeeee;
-            --text-dim: #908d8d;
-            --accent: #2bbc8a;
-            --link: #d480aa;
-            --quote: #ccffb6;
-            --border: #333;
+            --bg: #ffffff;
+            --text: #333333;
+            --text-light: #111111;
+            --text-dim: #777777;
+            --accent: #111111;
+            --link: #111111;
+            --border: #e0e0e0;
             --mono: 'Source Code Pro', monospace;
         }
 
@@ -38,9 +37,9 @@
 
         a {
             color: var(--link);
-            text-decoration: none;
+            text-decoration: underline;
         }
-        a:hover { text-decoration: underline; }
+        a:hover { opacity: 0.6; }
 
         .container {
             max-width: 700px;
@@ -62,13 +61,17 @@
         }
 
         nav .site-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        nav .site-title span {
-            color: var(--accent);
+        nav .site-title img {
+            width: 28px;
+            height: 28px;
         }
 
         nav .nav-links {
@@ -79,12 +82,13 @@
 
         nav .nav-links a {
             color: var(--text-dim);
+            text-decoration: none;
             transition: color 0.2s;
         }
 
         nav .nav-links a:hover {
-            color: var(--accent);
-            text-decoration: none;
+            color: var(--text-light);
+            opacity: 1;
         }
 
         /* hero */
@@ -94,7 +98,7 @@
         }
 
         .hero h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 600;
             color: var(--text-light);
             margin-bottom: 16px;
@@ -114,16 +118,16 @@
         }
 
         .section-title {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--text-dim);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             margin-bottom: 24px;
         }
 
         h2 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--text-light);
             margin-bottom: 16px;
@@ -139,10 +143,10 @@
         }
 
         blockquote {
-            border-left: 3px solid var(--accent);
+            border-left: 3px solid var(--text-light);
             padding-left: 16px;
             margin: 24px 0;
-            color: var(--quote);
+            color: var(--text);
             font-style: italic;
         }
 
@@ -165,7 +169,7 @@
         }
 
         .city h3 span {
-            color: var(--accent);
+            color: var(--text-dim);
             margin-right: 8px;
         }
 
@@ -195,7 +199,7 @@
 
         .city ul li::before {
             content: ">";
-            color: var(--accent);
+            color: var(--text-light);
             margin-right: 10px;
             font-weight: 600;
         }
@@ -211,7 +215,7 @@
         .fee-table th {
             text-align: left;
             padding: 8px 0;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--text-light);
             color: var(--text-dim);
             font-weight: 500;
             font-size: 12px;
@@ -227,7 +231,7 @@
 
         .fee-table td:last-child {
             text-align: right;
-            color: var(--accent);
+            color: var(--text-light);
             font-weight: 600;
         }
 
@@ -248,11 +252,11 @@
         }
 
         footer a:hover {
-            color: var(--accent);
+            color: var(--text-light);
         }
 
         @media (max-width: 600px) {
-            .hero h1 { font-size: 28px; }
+            .hero h1 { font-size: 24px; }
             .city-grid { grid-template-columns: 1fr; }
             nav .nav-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
         }
@@ -263,7 +267,7 @@
 <div class="container">
     <nav>
         <div class="nav-inner">
-            <div class="site-title"><span>~</span> the hand</div>
+            <div class="site-title"><img src="hand-logo.jpg" alt="The Hand"> The Hand</div>
             <div class="nav-links">
                 <a href="#about">about</a>
                 <a href="#cities">cities</a>
@@ -274,32 +278,32 @@
     </nav>
 
     <div class="hero">
-        <h1>We paid people to draw a stick man across Iran.</h1>
-        <p>A simple act of solidarity. The world sees them. Help us spread it further.</p>
+        <h1>We use creator fees to pay people to draw our hand in every country.</h1>
+        <p>The Hand is a global solidarity project. every swap generates creator fees on pump.fun — and we use 100% of those fees to pay locals around the world to draw our hand symbol in their city. one country at a time.</p>
     </div>
 
     <section id="about">
         <div class="section-title">about</div>
         <p>The people of Iran deserve to be seen. For too long, headlines have reduced an entire nation to politics and conflict. But Iran is its people — millions of real humans living real lives.</p>
-        <p><strong>The Hand is our answer.</strong> A stick man, drawn by hand, in cities across Iran. It's intentionally simple. It doesn't need to be art. It just needs to carry the message: the world sees you.</p>
-        <p>We paid real people in cities across Iran to draw the stick man in their neighborhoods. Not because it's art, but because <strong>it's a message</strong>. Each drawing is unique. Each carries the courage of the person who made it.</p>
+        <p><strong>The Hand is our answer.</strong> A hand drawn by real people, in cities across the world. It's intentionally simple. It doesn't need to be art. It just needs to carry the message: the world sees you.</p>
+        <p>Every time someone buys or sells $HAND on pump.fun, creator fees flow into our vault. We use those fees to pay locals in countries around the world to draw our hand symbol in their city. <strong>No buybacks. No treasury hoarding. Every fee goes to spreading the hand.</strong></p>
 
-        <blockquote>The Hand isn't about politics. It's about people. It's about showing that a simple drawing can carry a powerful message. That solidarity doesn't need to be complicated. That the world sees Iran.</blockquote>
+        <blockquote>The Hand isn't about politics. It's about people. It's about showing that a simple drawing can carry a powerful message. That solidarity doesn't need to be complicated.</blockquote>
 
-        <p>Every wobbly line, every rough sketch, every chalk drawing on a wall — these aren't just doodles. <strong>They're acts of visibility.</strong> They're proof that the people of Iran are seen, heard, and supported by people around the world.</p>
+        <p>Every rough sketch, every chalk drawing on a wall — these aren't just doodles. <strong>They're acts of visibility.</strong> Proof that people around the world are seen, heard, and supported. The hand keeps spreading, one country at a time, funded entirely by creator fees.</p>
     </section>
 
     <section id="cities">
-        <div class="section-title">the stick man across iran</div>
+        <div class="section-title">the hand across iran</div>
 
         <div class="city">
             <h3><span>01</span> Tehran</h3>
             <div class="city-grid">
-                <img src="turkey1.png" alt="The stick man in Tehran">
+                <img src="turkey1.png" alt="The hand in Tehran">
                 <ul>
                     <li>Local artist in central Tehran</li>
                     <li>Drew with chalk near Azadi Square</li>
-                    <li>Paid $100 USD</li>
+                    <li>Paid $100 USD from creator fees</li>
                     <li>Stands where millions walk every day</li>
                 </ul>
             </div>
@@ -308,11 +312,11 @@
         <div class="city">
             <h3><span>02</span> Isfahan</h3>
             <div class="city-grid">
-                <img src="yemen1.png" alt="The stick man in Isfahan">
+                <img src="yemen1.png" alt="The hand in Isfahan">
                 <ul>
                     <li>Artist near Naqsh-e Jahan Square</li>
                     <li>Painted on a weathered wall in the old city</li>
-                    <li>Paid $50 USD</li>
+                    <li>Paid $50 USD from creator fees</li>
                     <li>Brings smiles to a city known for its beauty</li>
                 </ul>
             </div>
@@ -321,11 +325,11 @@
         <div class="city">
             <h3><span>03</span> Shiraz</h3>
             <div class="city-grid">
-                <img src="russia1.png" alt="The stick man in Shiraz">
+                <img src="russia1.png" alt="The hand in Shiraz">
                 <ul>
                     <li>Street artist near Eram Garden</li>
                     <li>Sketched on a quiet side street</li>
-                    <li>Paid $80 USD</li>
+                    <li>Paid $80 USD from creator fees</li>
                     <li>The city of poets now has a new messenger</li>
                 </ul>
             </div>
@@ -334,11 +338,11 @@
         <div class="city">
             <h3><span>04</span> Tabriz</h3>
             <div class="city-grid">
-                <img src="brazil1.png" alt="The stick man in Tabriz">
+                <img src="brazil1.png" alt="The hand in Tabriz">
                 <ul>
                     <li>Artist in the Grand Bazaar district</li>
                     <li>Spray-painted on a market wall</li>
-                    <li>Paid $75 USD</li>
+                    <li>Paid $75 USD from creator fees</li>
                     <li>One of the oldest bazaars in the world</li>
                 </ul>
             </div>
@@ -346,8 +350,8 @@
     </section>
 
     <section id="fees">
-        <div class="section-title">fees</div>
-        <p>Every transaction helps fund more drawings across Iran.</p>
+        <div class="section-title">creator fees</div>
+        <p>Every swap on pump.fun generates creator fees. We collect those fees and use them to fund hand drawings in new countries. Here's how they're allocated:</p>
 
         <table class="fee-table">
             <tr>
@@ -355,7 +359,7 @@
                 <th>share</th>
             </tr>
             <tr>
-                <td>Stick man drawings in Iran</td>
+                <td>Drawing the hand in new countries</td>
                 <td>50%</td>
             </tr>
             <tr>
@@ -368,14 +372,14 @@
             </tr>
         </table>
 
-        <p><strong>50%</strong> goes directly to paying people across Iran — Tehran, Isfahan, Shiraz, Tabriz, and beyond — to draw the stick man and spread the message that the world sees them.</p>
+        <p><strong>50%</strong> goes directly to paying people around the world to draw the hand in their city. We start with Iran and expand to every country we can reach.</p>
         <p><strong>25%</strong> goes to buybacks to support the token and reward holders who believe in the mission.</p>
         <p><strong>25%</strong> goes to the dev team to coordinate artists and keep the project running.</p>
     </section>
 
     <footer>
         <p>the hand — because the world sees you.</p>
-        <p>this project isn't about one drawing. it's about people. help us spread it further.</p>
+        <p>funded entirely by pump.fun creator fees. one country at a time.</p>
         <p style="margin-top: 16px;"><a href="https://x.com/MadeByHumansXyz" target="_blank">@MadeByHumansXyz</a></p>
     </footer>
 </div>
